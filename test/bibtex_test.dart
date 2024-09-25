@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
+import 'package:petit_bibtex/bibtex.dart';
 import 'package:petitparser/reflection.dart';
-import 'package:petitparser_examples/bibtex.dart';
 import 'package:test/test.dart';
 
 Matcher isBibTextEntry({

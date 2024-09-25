@@ -1,16 +1,11 @@
-name: petitparser_examples
+name: petit_bibtex
 version: 6.1.0
 
 homepage: https://petitparser.github.io
-repository: https://github.com/petitparser/dart-petitparser-examples
-description: A collection of example parsers, applications, and benchmarks that
-  illustrate the PetitParser framework.
+repository: https://github.com/amake/petit_bibtex
+description: A BibTeX parser
 topics:
-  - grammar
-  - parser
-  - parser-combinator
-  - parsing
-  - peg
+  - bibtex
 
 environment:
   sdk: ^3.5.0
