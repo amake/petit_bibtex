@@ -58,6 +58,20 @@ void main() {
       final entry = parser.parse(input).value.single;
       expect(entry, isBibTextEntry(key: 'abramowitz+stegun'));
     });
+    test('trailing comma', () {
+      // From https://www.bibtex.com/e/entry-types/#article
+      const input = '''@article{CitekeyArticle,
+  author   = "P. J. Cohen",
+  title    = "The independence of the continuum hypothesis",
+  journal  = "Proceedings of the National Academy of Sciences",
+  year     = 1963,
+  volume   = "50",
+  number   = "6",
+  pages    = "1143--1148",
+}''';
+      final entry = parser.parse(input).value.single;
+      expect(entry, isBibTextEntry());
+    });
   });
   group('scg.bib', () {
     late final List<BibTeXEntry> entries;

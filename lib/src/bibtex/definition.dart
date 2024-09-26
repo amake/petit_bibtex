@@ -15,8 +15,14 @@ class BibTeXDefinition extends GrammarDefinition<List<BibTeXEntry>> {
   Parser<List<BibTeXEntry>> entries() => ref0(entry)
       .starSeparated(whitespace().star())
       .map((list) => list.elements);
-  Parser<BibTeXEntry> entry() => seq6(type.trim(), char('{').trim(),
-          citeKey.trim(), char(',').trim(), ref0(fields), char('}').trim())
+  Parser<BibTeXEntry> entry() => seq6(
+          type.trim(),
+          char('{').trim(),
+          citeKey.trim(),
+          char(',').trim(),
+          ref0(fields),
+          // optional trailing comma
+          char(',').optional().trim() & char('}').trim())
       .map6((type, _, key, __, fields, ___) =>
           BibTeXEntry(type: type, key: key, fields: fields));
 
