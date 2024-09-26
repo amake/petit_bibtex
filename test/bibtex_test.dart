@@ -43,6 +43,22 @@ void main() {
       expect(entry.toString(), input);
     });
   });
+  group('edge cases', () {
+    test('plus in key', () {
+      // From https://en.wikipedia.org/wiki/BibTeX#Database_files
+      const input = '''@Book{abramowitz+stegun,
+ author    = "Milton {Abramowitz} and Irene A. {Stegun}",
+ title     = "Handbook of Mathematical Functions with
+              Formulas, Graphs, and Mathematical Tables",
+ publisher = "Dover",
+ year      =  1964,
+ address   = "New York City",
+ edition   = "ninth Dover printing, tenth GPO printing"
+}''';
+      final entry = parser.parse(input).value.single;
+      expect(entry, isBibTextEntry(key: 'abramowitz+stegun'));
+    });
+  });
   group('scg.bib', () {
     late final List<BibTeXEntry> entries;
     setUpAll(() async {
