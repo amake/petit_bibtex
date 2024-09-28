@@ -72,6 +72,26 @@ void main() {
       final entry = parser.parse(input).value.single;
       expect(entry, isBibTextEntry());
     });
+    test('hyphen in key', () {
+      const input = '''@article{jiang-2019-mechan-proper,
+  author =       {Bo Jiang and Wen Fang and Ruomeng Chen and Dongyu
+                  Guo and Yinjie Huang and Chaolei Zhang and Yazheng
+                  Liu},
+  title =        {Mechanical Properties and Microstructural
+                  Characterization of Medium Carbon Non-Quenched and
+                  Tempered Steel - Microalloying Behavior},
+  journal =      {Materials Science and Engineering: A},
+  volume =       748,
+  number =       {nil},
+  pages =        {180-188},
+  year =         2019,
+  doi =          {10.1016/j.msea.2019.01.094},
+  url =          {http://sci-hub.se/10.1016/j.msea.2019.01.094},
+  DATE_ADDED =   {Fri Oct 28 17:16:26 2022},
+}''';
+      final entry = parser.parse(input).value.single;
+      expect(entry, isBibTextEntry());
+    });
   });
   group('scg.bib', () {
     late final List<BibTeXEntry> entries;

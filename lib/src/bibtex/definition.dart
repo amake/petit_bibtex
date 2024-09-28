@@ -62,8 +62,7 @@ class BibTeXDefinition extends GrammarDefinition<List<BibTeXEntry>> {
 
   // Basic strings
   final type = letter().plusString("type expected").skip(before: char('@'));
-  final citeKey =
-      pattern(r'a-zA-Z0-9_:-\+').plusString("citation key expected");
+  final citeKey = pattern('a-zA-Z0-9_:+-').plusString("citation key expected");
   final fieldName = pattern('a-zA-Z0-9_-').plusString("field name expected");
   final rawString = pattern('a-zA-Z0-9').plusString("raw string expected");
 
