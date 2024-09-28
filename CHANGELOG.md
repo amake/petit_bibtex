@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.3
+
+* Fix handling of `-` in citation keys
+
 ## 6.1.2
 
 * Allow `+` in citation keys
