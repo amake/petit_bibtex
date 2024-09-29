@@ -93,6 +93,20 @@ void main() {
       final entry = parser.parse(input).value.single;
       expect(entry, isBibTextEntry(key: 'jiang-2019-mechan-proper'));
     });
+    test('non-ASCII key', () {
+      const input = '''@article{王家聪-2016-xg720,
+  author =       {王家聪 and 罗海霞 and 杨立志 and 韦金钰 and 叶海燕},
+  title =        {油缸用高强韧性冷拔新材料XG720的开发},
+  journal =      {钢管},
+  url =          {https://www.doc88.com/p-3157461926925.html},
+  volume =       45,
+  number =       6,
+  pages =        {9--14},
+  year =         2016,
+}''';
+      final entry = parser.parse(input).value.single;
+      expect(entry, isBibTextEntry(key: '王家聪-2016-xg720'));
+    });
   });
   group('scg.bib', () {
     late final List<BibTeXEntry> entries;
