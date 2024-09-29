@@ -71,6 +71,7 @@ void main() {
 }''';
       final entry = parser.parse(input).value.single;
       expect(entry, isBibTextEntry());
+      expect(entry.fields['pages'], '"1143--1148"');
     });
     test('hyphen in key', () {
       const input = '''@article{jiang-2019-mechan-proper,
@@ -90,7 +91,7 @@ void main() {
   DATE_ADDED =   {Fri Oct 28 17:16:26 2022},
 }''';
       final entry = parser.parse(input).value.single;
-      expect(entry, isBibTextEntry());
+      expect(entry, isBibTextEntry(key: 'jiang-2019-mechan-proper'));
     });
   });
   group('scg.bib', () {
