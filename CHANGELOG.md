@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.1.4
+
+* Allow non-ASCII characters in citation keys
+* Allow un-delimited field value strings that are URLs (as long as the URL
+  doesn't contain a `,`)
+
 ## 6.1.3
 
 * Fix handling of `-` in citation keys
