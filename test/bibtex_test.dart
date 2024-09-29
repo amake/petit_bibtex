@@ -107,6 +107,26 @@ void main() {
       final entry = parser.parse(input).value.single;
       expect(entry, isBibTextEntry(key: '王家聪-2016-xg720'));
     });
+    test('raw string URL', () {
+      const input = '''@article{陈卓-2019,
+  author =       {陈卓},
+  title =        {极薄取向硅钢制备方法的进步及需求研究},
+  journal =      {电工钢},
+  volume =       1,
+  number =       1,
+  pages =        {5-7},
+  year =         2019,
+  url =
+                  http://www.bwjournal.com/dgg/CN/abstract/article_7273.shtml?q=foo,
+  eid =          5,
+  keywords =     {极薄取向硅钢；生产；工艺变化；需求分析及预测},
+  publisher =    {电工钢},
+}''';
+      final entry = parser.parse(input).value.single;
+      expect(entry, isBibTextEntry());
+      expect(entry.fields['url'],
+          'http://www.bwjournal.com/dgg/CN/abstract/article_7273.shtml?q=foo');
+    });
   });
   group('scg.bib', () {
     late final List<BibTeXEntry> entries;

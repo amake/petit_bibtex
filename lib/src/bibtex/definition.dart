@@ -65,7 +65,9 @@ class BibTeXDefinition extends GrammarDefinition<List<BibTeXEntry>> {
   final citeKey =
       (anyOf(',{}') | whitespace()).neg().plusString("citation key expected");
   final fieldName = pattern('a-zA-Z0-9_-').plusString("field name expected");
-  final rawString = pattern('a-zA-Z0-9').plusString("raw string expected");
+  // Allow for URLs, except if they contain a comma
+  final rawString =
+      pattern(r'a-zA-Z0-9!#$%&()+./:;=?@_-').plusString("raw string expected");
 
   // Other tokens
   final escapeChar = seq2(char(r'\'), any());
