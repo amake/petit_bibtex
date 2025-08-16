@@ -39,3 +39,12 @@ jobs:
           dart pub global run coverage:test_with_coverage --test test/bibtex_test.dart
       - name: "Upload coverage"
         uses: codecov/codecov-action@v5
+  check:
+    name: "Check"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: amake/dart-flutter-compat@v0-pre2
+        with:
+          channel: stable
+          cache: true
