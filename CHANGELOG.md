@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.2.0
+
+* Update petitparser to 7.0.1
+
 ## 6.1.4
 
 * Allow non-ASCII characters in citation keys
